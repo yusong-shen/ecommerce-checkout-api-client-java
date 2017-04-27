@@ -56,7 +56,7 @@ public class CartApiTest {
     public void checkoutCheckoutIdAvailablePaymentMethodsGetUsingGETTest() throws ApiException {
         String checkoutId = "1";
     	AvailablePaymentMethodList result = api.checkoutCheckoutIdAvailablePaymentMethodsGetUsingGET(checkoutId);
-        assert(result.getAvailablePaymentMethods().size() == 0);
+        assert(result.getAvailablePaymentMethods().size() > 0);
     }
     
     /**
@@ -71,7 +71,7 @@ public class CartApiTest {
     public void checkoutCheckoutIdAvailableShippingMethodsGetUsingGETTest() throws ApiException {
         String checkoutId = "1";
     	AvailableShippingMethodList result = api.checkoutCheckoutIdAvailableShippingMethodsGetUsingGET(checkoutId);
-        assert(result.getAvailableShippingMethods().size() == 0);
+        assert(result.getAvailableShippingMethods().size() > 0);
     }
     
     /**

@@ -1,4 +1,4 @@
-# swagger-java-client
+# ecommerce-checkout-flow-api-java-client
 
 ## Requirements
 
@@ -82,6 +82,9 @@ public class CartApiExample {
 }
 
 ```
+Please also check the `CartApiTest.java`, `CartApiExample.java` file under test.java package.
+`CartApiTest.java` implements unit tests for each API end point,
+`CartApiExample.java` demonstrates a simple checkout work flow.
 
 ## Documentation for API Endpoints
 
@@ -133,6 +136,7 @@ Authentication schemes defined for the API:
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
+Yusong Shen
 
 
 

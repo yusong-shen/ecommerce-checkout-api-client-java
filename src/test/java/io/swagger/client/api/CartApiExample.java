@@ -26,6 +26,7 @@ public class CartApiExample {
         CartApi api = new CartApi();
         try {
         	// SHOPPING
+        	System.out.println("SHOPPING");
         	// user create a empty cart
             Cart cart = CartData.createCart(null, null, null, null, null, null, new ArrayList<Product>(), null);
             Checkout response = api.createCartUsingPOST(cart);
@@ -39,8 +40,10 @@ public class CartApiExample {
     		String item2Id = UUID.randomUUID().toString();
     		Product item2 = ProductData.createProduct(custom2, null, null, item2Id, null, null, null, null);
             response = api.createItemUsingPOST(checkoutId, item2);
+            System.out.println(response);
             
             // ADDRESS INFORMATION
+            System.out.println("ADDRESS INFORMATION");
             // set the billing address and shopping address
             Address address = new Address();
             address.setAddress1("101 Earth");
@@ -52,24 +55,28 @@ public class CartApiExample {
             // Shipping method (0: Express, 1: Standard, 2: Economy)
             AvailableShippingMethodList shipping_response = api.checkoutCheckoutIdAvailableShippingMethodsGetUsingGET(checkoutId);
             List<AvailableShippingMethod> shipping_lst = shipping_response.getAvailableShippingMethods();
-//			for (AvailableShippingMethod as : shipping_lst) {
-//            	System.out.println(as);
-//            }
+			for (AvailableShippingMethod as : shipping_lst) {
+            	System.out.println(as);
+            }
             
             // DELIVERY OPTIONS
+			System.out.println("DELIVERY OPTIONS");
             // user set their delivery option
-            String shippingMethod = "2";
+            String shippingMethod = "0";
             response = api.checkoutCheckoutIdShippingMethodPutUsingPUT(checkoutId, shippingMethod);
+            System.out.println(response.getCart().getShippingMethod());
             
             // PAYMENT
+			System.out.println("PAYMENT");
             // show a list of available payment method to user
             AvailablePaymentMethodList payments_response = api.checkoutCheckoutIdAvailablePaymentMethodsGetUsingGET(checkoutId);
             List<AvailablePaymentMethod> payment_lst = payments_response.getAvailablePaymentMethods();
-//            for (AvailablePaymentMethod ap : payment_lst) {
-//            	System.out.println(ap);
-//            }
+            for (AvailablePaymentMethod ap : payment_lst) {
+            	System.out.println(ap);
+            }
             
             // CONFIRMATION
+			System.out.println("CONFIRMATION");
             // show all the details of order for user to review
             Checkout review = api.checkoutCheckoutIdGetUsingGET(checkoutId);
             System.out.println(review);
